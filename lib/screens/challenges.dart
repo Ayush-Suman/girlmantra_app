@@ -53,6 +53,7 @@ class ChallengesState extends State<Challenges> with TickerProviderStateMixin {
       sideNavOpened.value ? animationController.forward() : animationController
           .reverse();
     });
+
     animationController.dispose();
     tabController.dispose();
     pageController.dispose();
@@ -155,8 +156,9 @@ class ChallengesState extends State<Challenges> with TickerProviderStateMixin {
                         Flexible(child: Padding(
                             padding: EdgeInsets.symmetric(vertical: 20),
                             child: PageView(
+
                               onPageChanged: (index){
-                                tabController.animateTo(index);
+                                Future.delayed(kThemeAnimationDuration, (){tabController.animateTo(index);});
                               },
                               controller: pageController,
                               children: [
