@@ -155,6 +155,9 @@ class ChallengesState extends State<Challenges> with TickerProviderStateMixin {
                         Flexible(child: Padding(
                             padding: EdgeInsets.symmetric(vertical: 20),
                             child: PageView(
+                              onPageChanged: (index){
+                                tabController.animateTo(index);
+                              },
                               controller: pageController,
                               children: [
                                 Container(color: ThemeColors.primary),
